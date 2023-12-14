@@ -9,4 +9,5 @@ public class Cliente extends Pessoa{
 	void imprimir(String a) {
 	}
 	
+		//add functions for client management
 }

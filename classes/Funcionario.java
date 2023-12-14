@@ -9,4 +9,5 @@ public class Funcionario extends Pessoa{
 	void imprimir(String a) {
 	}
 	
+	//add functions for funcionario management
 }

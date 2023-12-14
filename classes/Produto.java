@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
-
 @Entity
 public abstract class Produto{
 	@Id
@@ -85,4 +84,7 @@ public abstract class Produto{
 	public void setPorcão(Double porcão) {
 		this.porcão = porcão;
 	}
+
+
+	//add functions for stock management, venda, compra
 }

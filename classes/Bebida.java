@@ -10,6 +10,7 @@ public class Bebida extends Produto{
 	private String tipo;
 	private String ingredientes;
 	private String temperatura;
+	private String descricao;
 
 	//create constructors
 

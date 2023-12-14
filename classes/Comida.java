@@ -9,6 +9,7 @@ public class Comida extends Produto{
 	@Id
 	private String tipo;
 	private String ingredientes;
+	private String descricao;
 	
 	//create constructors
 
