@@ -19,13 +19,14 @@ public abstract class Produto{
 	private String nome;
 	@Column(name="PRECO")
 	private Double preco;
-	@Column(name="ESTOQUE")
-	private Integer estoque;
 	@Column(name="PORÇAO")
 	private Double porcão;
 
 	@ManyToOne
 	private Fornecedor fornecedor;
+
+	//ManyToOne estoque
+	//ManyToOne produto
 
 	//constructors
 	public Produto() {
@@ -33,10 +34,9 @@ public abstract class Produto{
 	public Produto(String produtoID) {
 		this.produtoID = produtoID;
 	}
-	public Produto(String produtoID, String nome, Integer estoque, Double preco, Fornecedor fornecedor) {
+	public Produto(String produtoID, String nome, Double preco, Fornecedor fornecedor) {
 		this.produtoID = produtoID;
 		this.nome = nome;
-		this.estoque = estoque;
 		this.preco = preco;
 		this.fornecedor = fornecedor;
 	}
@@ -55,13 +55,6 @@ public abstract class Produto{
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public Integer getEstoque() {
-		return estoque;
-	}
-	public void setEstoque(Integer estoque) {
-		this.estoque = estoque;
 	}
 
 	public Double getPreco() {
@@ -85,6 +78,4 @@ public abstract class Produto{
 		this.porcão = porcão;
 	}
 
-
-	//add functions for stock management, venda, compra
 }

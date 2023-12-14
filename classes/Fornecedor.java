@@ -23,6 +23,8 @@ public class Fornecedor {
 	@OneToMany(mappedBy="produto")
 	private List<Produto> produto;
 
+	//ManyToMany estoque
+
 	public Fornecedor() {
 	}
 	public Fornecedor(String cNPJ) {
