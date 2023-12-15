@@ -1,15 +1,83 @@
 package classes;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 
 @Entity
-public class Cliente extends Pessoa{
+public class Cliente{
 	//add client specific atributes
-	//OneToOne pedido
+	@Id
+	private String pessoaID;
+	private String nome;
+	private String telefone;
+	private String email;
 
-	//implement methods for cliente
-	void imprimir(String a) {
+	@ManyToOne
+	private Endereco endereco;
+	@OneToOne 
+	private Pedido pedido;
+	
+	//constructors
+	public Cliente() {
+		super();
 	}
+	public Cliente(String pessoaID) {
+		super();
+		this.pessoaID = pessoaID;
+	}
+	public Cliente(String pessoaID, String nome, String telefone, String email, Endereco endereco, Pedido pedido) {
+		super();
+		this.pessoaID = pessoaID;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.email = email;
+		this.endereco = endereco;
+		this.pedido = pedido;
+	}
+	
+	
+	//getters and setters:
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+	public String getPessoaID() {
+		return pessoaID;
+	}
+	public void setPessoaID(String pessoaID) {
+		this.pessoaID = pessoaID;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
 	
 		//add functions for client management
 		/*such as:
