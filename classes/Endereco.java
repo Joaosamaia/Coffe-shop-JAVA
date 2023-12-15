@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -16,9 +18,12 @@ public class Endereco {
 	private String estado;
 	private String pais;
 	
-	@OneToMany(mappedBy="pessoa", fetch = FetchType.LAZY)
-	private Pessoa pessoa;
-	@OneToOne()
+	@OneToMany(mappedBy="endereco", fetch = FetchType.LAZY)
+	private List<Funcionario> funcionario;
+	@OneToMany(mappedBy="endereco", fetch = FetchType.LAZY)
+	private List<Cliente> cliente;
+
+	@OneToOne
 	private Fornecedor fornecedor;
 	
 	//constructors
@@ -36,7 +41,15 @@ public class Endereco {
 		this.setPais(pais);
 		this.setFornecedor(fornecedor);
 	}
-
+	public Endereco(String cEP, String rua, String bairro, String cidade, String estado, String pais) {
+		super();
+		this.setCEP(CEP);
+		this.setRua(rua);
+		this.setBairro(bairro);
+		this.setCidade(cidade);
+		this.setEstado(estado);
+		this.setPais(pais);
+	}
 	//getters and setters:
 
 	public String getRua() {
@@ -87,4 +100,17 @@ public class Endereco {
 	public void setFornecedor(Fornecedor Fornecedor) {
 		this.fornecedor = Fornecedor;
 	}
+	public List<Cliente> getCliente() {
+		return cliente;
+	}
+	public void setCliente(List<Cliente> cliente) {
+		this.cliente = cliente;
+	}
+	public List<Funcionario> getFuncionario() {
+		return funcionario;
+	}
+	public void setFuncionario(List<Funcionario> funcionario) {
+		this.funcionario = funcionario;
+	}
+
 }
