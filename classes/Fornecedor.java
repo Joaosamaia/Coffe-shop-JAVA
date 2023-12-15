@@ -1,9 +1,9 @@
 package classes;
 
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -11,26 +11,23 @@ import javax.persistence.OneToOne;
 public class Fornecedor {
 	@Id
 	private String CNPJ;
-	@Column(name="NOME")
 	private String nome;
-	@Column(name="TELEFONE")
 	private String telefone;
-	@Column(name="EMAIL")
-	private Integer email;
+	private String email;
 	
 	@OneToOne
 	private Endereco endereco;
-	@OneToMany(mappedBy="produto")
+	@OneToMany(mappedBy="fornecedor")
 	private List<Produto> produto;
-
-	//ManyToMany estoque
+	@ManyToMany 
+	private List<Estoque> estoque;
 
 	public Fornecedor() {
 	}
 	public Fornecedor(String cNPJ) {
 		CNPJ = cNPJ;
 	}
-	public Fornecedor(String cNPJ, String nome, String telefone, Integer email, Endereco endereco,
+	public Fornecedor(String cNPJ, String nome, String telefone, String email, Endereco endereco,
 			List<Produto> produto) {
 		CNPJ = cNPJ;
 		this.nome = nome;
@@ -62,10 +59,10 @@ public class Fornecedor {
 		this.telefone = telefone;
 	}
 	
-	public Integer getEmail() {
+	public String getEmail() {
 		return email;
 	}
-	public void setEmail(Integer email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 	
