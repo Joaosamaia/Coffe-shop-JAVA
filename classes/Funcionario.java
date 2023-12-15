@@ -1,14 +1,92 @@
 package classes;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Funcionario extends Pessoa{
+public class Funcionario{
 	//add funcionario specific atributes
+	@Id
+	private String pessoaID;
+	private String nome;
+	private String telefone;
+	private String email;
+	private String CPF;
+	private String cargo;
+
+	@ManyToOne
+	private Endereco endereco;
 	
-	//implement methods for funcionario
-	void imprimir(String a) {
+	
+	
+	//constructors
+	public Funcionario() {
+		super();
 	}
+	public Funcionario(String pessoaID) {
+		super();
+		this.pessoaID = pessoaID;
+	}
+	public Funcionario(String pessoaID, String nome, String telefone, String email, String cPF, String cargo,
+			Endereco endereco) {
+		super();
+		this.pessoaID = pessoaID;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.email = email;
+		this.CPF = cPF;
+		this.cargo = cargo;
+		this.endereco = endereco;
+	}
+	
+	
+	//getters and setters:
+
+	public String getCPF() {
+		return CPF;
+	}
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
+	public String getCargo() {
+		return cargo;
+	}
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+	public String getPessoaID() {
+		return pessoaID;
+	}
+	public void setPessoaID(String pessoaID) {
+		this.pessoaID = pessoaID;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+	
+
 	
 		//add functions for funcionario management
 		/*such as:
