@@ -1,27 +1,29 @@
 package classes;
 
+import java.util.List;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-
-import org.hibernate.annotations.GenericGenerator;
-
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public abstract class Pedido{
 	@Id
-	@GeneratedValue(generator = "custom-generator")
-   	@GenericGenerator(name = "custom-generator", strategy = "com.project.CustomIdGenerator")
 	private String pedidoID;
-	private Cliente cliente;
-	private Produto produto;
 	private Double valor;
 	private String dataHora;
+	
 	//add date.time atributes
 
-	//OneToMany produto
-	//OneToOne cliente
-	//ManyToMany estoque
+	@OneToMany(mappedBy="pedido", fetch = FetchType.LAZY)
+	private List<Produto> produto;
+	@OneToOne 
+	private Cliente cliente;
+	@ManyToMany 
+	private List<Estoque> estoque;
 
 	//constructors
 	public Pedido() {
@@ -29,14 +31,16 @@ public abstract class Pedido{
 	public Pedido(String pedidoID) {
 		this.pedidoID = pedidoID;
 	}
-	public Pedido(String pedidoID, Cliente cliente, Produto produto, Double valor, String dataHora) {
+	public Pedido(String pedidoID, Double valor, String dataHora, List<Produto> produto, Cliente cliente, List<Estoque> estoque) {
+		super();
 		this.pedidoID = pedidoID;
-		this.cliente = cliente;
-		this.produto = produto;
 		this.valor = valor;
 		this.dataHora = dataHora;
+		this.produto = produto;
+		this.cliente = cliente;
+		this.estoque = estoque;
 	}
-
+	
 	//getters and setters:
 
 	public String getPedidoID() {
@@ -52,14 +56,12 @@ public abstract class Pedido{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-
-	public Produto getProduto() {
+	public List<Produto> getProduto() {
 		return produto;
 	}
-	public void setProduto(Produto produto) {
+	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
-
 	public Double getValor() {
 		return valor;
 	}
@@ -73,7 +75,12 @@ public abstract class Pedido{
 	public void setDataHora(String dataHora) {
 		this.dataHora = dataHora;
 	}
-
+	public List<Estoque> getEstoque() {
+		return estoque;
+	}
+	public void setEstoque(List<Estoque> estoque) {
+		this.estoque = estoque;
+	}
 		//add functions for order management
 		/*such as:
 	CreateOrder:
