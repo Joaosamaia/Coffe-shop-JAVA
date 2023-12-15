@@ -4,16 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Comida extends Produto{
-	//add comida specific atributes
+public class Bebida extends Produto{
+	//add bebida specific atributes
 	private String tipo;
 	private String ingredientes;
+	private String temperatura;
 	private String descricao;
-	
+
 	//create constructors
 
 
-	//implement methods for Comida
+	//implement methods for Bebida
 	void imprimir(String a) {
 	}
 	
