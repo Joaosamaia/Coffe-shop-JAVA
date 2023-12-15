@@ -6,7 +6,6 @@ import javax.persistence.Id;
 @Entity
 public class Comida extends Produto{
 	//add comida specific atributes
-	@Id
 	private String tipo;
 	private String ingredientes;
 	private String descricao;
