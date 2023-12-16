@@ -43,10 +43,10 @@
         <class>classes.ComidaDAOImpl</class>
 
         <properties>
-            <!-- Configuracoes do banco de dados -->      <!-- tem q mudar todas as config pro SGBD em uso -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/YourDatabaseName" /> <!-- caminho do teu banco de dados-->
-            <property name="javax.persistence.jdbc.user" value="YourUserName" /> <!-- teu nome de usuario nesse banco-->
-            <property name="javax.persistence.jdbc.password" value="YourPassword" /> <!-- tua senha nesse banco-->
+            <!-- Configuracoes do banco de dados -->      <!-- tem q mudar todas as config pro SGBD em uso / change all the configs to the DBMS you intend to use-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/YourDatabaseName" /> <!-- caminho do teu banco de dados / path to your database-->
+            <property name="javax.persistence.jdbc.user" value="YourUserName" /> <!-- teu nome de usuario nesse banco / your username in said database-->
+            <property name="javax.persistence.jdbc.password" value="YourPassword" /> <!-- tua senha nesse banco / your password in said database-->
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 
             <!-- Configuracoes do Hibernate-->
