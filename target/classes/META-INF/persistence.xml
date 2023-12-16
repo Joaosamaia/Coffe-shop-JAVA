@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence, http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+     <persistence-unit name="PersistenceUnitJPA">
+
+        <description> arquivo de persistencia JPA </description>
+
+        <!-- Implementacao do JPA -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!--  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->
+
+        <class>classes.Cliente</class>
+        <class>classes.Funcionario</class>
+        <class>classes.Fornecedor</class>
+        <class>classes.Endereco</class>
+        <class>classes.Pedido</class>
+        <class>classes.Produto</class>
+        <class>classes.Estoque</class>
+        <class>classes.Bebida</class>
+        <class>classes.Comida</class>
+
+        <class>classes.ClienteDAO</class>
+        <class>classes.FuncionarioDAO</class>
+        <class>classes.FornecedorDAO</class>
+        <class>classes.EnderecoDAO</class>
+        <class>classes.PedidoDAO</class>
+        <class>classes.ProdutoDAO</class>
+        <class>classes.EstoqueDAO</class>
+        <class>classes.BebidaDAO</class>
+        <class>classes.ComidaDAO</class>
+
+        <class>classes.ClienteDAOImpl</class>
+        <class>classes.FuncionarioDAOImpl</class>
+        <class>classes.FornecedorDAOImpl</class>
+        <class>classes.EnderecoDAOImpl</class>
+        <class>classes.PedidoDAOImpl</class>
+        <class>classes.ProdutoDAOImpl</class>
+        <class>classes.EstoqueDAOImpl</class>
+        <class>classes.BebidaDAOImpl</class>
+        <class>classes.ComidaDAOImpl</class>
+
+        <properties>
+            <!-- Configuracoes do banco de dados -->      <!-- tem q mudar todas as config pro SGBD em uso -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/YourDatabaseName" /> <!-- caminho do teu banco de dados-->
+            <property name="javax.persistence.jdbc.user" value="YourUserName" /> <!-- teu nome de usuario nesse banco-->
+            <property name="javax.persistence.jdbc.password" value="YourPassword" /> <!-- tua senha nesse banco-->
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+
+            <!-- Configuracoes do Hibernate-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="false" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />  <!-- Possible values for hibernate.hbm2ddl.auto are: validate, update, create, create-drop -->
+
+            <!-- Configuracoes do EclipseLink (os parametros so sao reconhecidos se estiver usando a implementacao do EclipseLink) -->
+<!--            <property name="eclipselink.target-database" value="MySQL"/>-->
+<!--            <property name="eclipselink.logging.level.sql" value="FINE" />-->
+<!--            <property name="eclipselink.logging.parameters" value="true" />-->
+<!--            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />-->
+        </properties>
+    </persistence-unit>
+</persistence>
