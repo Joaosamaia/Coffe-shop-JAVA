@@ -1,6 +1,6 @@
 # Coffe-shop-java-project
 
->Status: Finalizado
+>Status: Completed (can be optimized)
 
 ## Table of Contents
 + [About](#about)
